@@ -71,7 +71,7 @@ class JobsListFragment() : Fragment(),
     }
 
     private suspend fun observeLiveData() {
-        viewModel.loadJobs().observe(this, Observer {
+        viewModel.loadJobs().observe(viewLifecycleOwner, Observer {
             jobsAdapter.submitList(it)
 
             /** to get formatted json array
